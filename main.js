@@ -191,7 +191,7 @@ function updateVoteText(){
 
     if(trumpVotes < MAJORITY){
         repDistanceText.innerHTML = `${MAJORITY - trumpVotes} away from 270`;
-    }else if(bidenVotes > MAJORITY){
+    }else if(trumpVotes > MAJORITY){
         repDistanceText.innerHTML = `${trumpVotes - MAJORITY} over 270`;
     }else{
         repDistanceText.innerHTML = "Reached 270";
