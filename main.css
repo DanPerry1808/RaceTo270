@@ -1,4 +1,6 @@
 body {
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0px;
 }
@@ -8,6 +10,15 @@ main {
     max-width: 1200px;
     height: 100%;
     padding: 20px;
+}
+
+h2 {
+    font-size: 200%;
+    margin-bottom: 0px;
+}
+
+button {
+    border-radius: 10%;
 }
 
 #canvas-wrapper {
@@ -31,8 +42,8 @@ table {
 
 #votes div{
     text-align: center;
-    border-radius: 25px;
-    padding: 10px 20px;
+    border-radius: 10px;
+    padding: 0px 10px;
     flex: 1;
 }
 
@@ -72,7 +83,7 @@ table, th, td {
 }
 
 td, th {
-    padding: 10px;
+    padding: 8px;
 }
 
 td.rep {
