@@ -3,15 +3,13 @@ const REP = 1;
 const NOT_CALLED = 2;
 
 const MAX_VOTES = 538;
+const MAJORITY = 270;
 
 const BAR_WIDTH = 800;
 const BAR_HEIGHT = 100;
 
 const DEM_COLOUR = "#244999";
 const REP_COLOUR = "#e50a00";
-
-const DEM_2016 = 232;
-const REP_2016 = 306;
 
 function State(code, name, votes, last_win, winner = NOT_CALLED){
     this.code = code;
@@ -142,10 +140,16 @@ function updateVoteText(){
     var demVotesChangeText = document.getElementById("dem-votes-change");
     var repVotesChangeText = document.getElementById("rep-votes-change");
 
+    // Getting text elements for how far each candidate is from 270
+    var demDistanceText = document.getElementById("dem-distance");
+    var repDistanceText = document.getElementById("rep-distance");
+
+
+    // Set text for electoral vote count for each candidate
     demVotesText.innerHTML = bidenVotes;
     repVotesText.innerHTML = trumpVotes;
 
-    // Append '+' to change if vote change is positive
+    // Append '+' to vote change string if vote change is positive
     var demChangeText = bidenChange;
     if(bidenChange >= 0){
         demChangeText = "+" + bidenChange;
@@ -174,6 +178,23 @@ function updateVoteText(){
         repVotesChangeText.className = "change-loss";
     }else{
         repVotesChangeText.className = "change-none";
+    }
+
+    // Setting text for distance from 270
+    if(bidenVotes < MAJORITY){
+        demDistanceText.innerHTML = `${MAJORITY - bidenVotes} away from 270`;
+    }else if(bidenVotes > MAJORITY){
+        demDistanceText.innerHTML = `${bidenVotes - MAJORITY} over 270`;
+    }else{
+        demDistanceText.innerHTML = "Reached 270";
+    }
+
+    if(trumpVotes < MAJORITY){
+        repDistanceText.innerHTML = `${MAJORITY - trumpVotes} away from 270`;
+    }else if(bidenVotes > MAJORITY){
+        repDistanceText.innerHTML = `${trumpVotes - MAJORITY} over 270`;
+    }else{
+        repDistanceText.innerHTML = "Reached 270";
     }
 }
 
