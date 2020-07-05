@@ -253,14 +253,16 @@ function addButtonListeners(){
             var state_i = findState(state_code);
             states[state_i].winner = REP;
 
-            // Re-enables the other buttons
+            // Re-enables the other buttons and removes colouring
             var other_buttons = document.getElementsByClassName(state_code);
             for(b of other_buttons){
                 b.disabled = false;
+                b.parentElement.className = "";
             }
 
             //Re-disable the button just clicked
             this.disabled = true;
+            this.parentElement.className = "rep";
 
             doUpdate();
         });
@@ -274,14 +276,16 @@ function addButtonListeners(){
             var state_i = findState(state_code);
             states[state_i].winner = DEM;
 
-            // Re-enables the other buttons
+            // Re-enables the other buttons and removes colouring
             var other_buttons = document.getElementsByClassName(state_code);
             for(b of other_buttons){
                 b.disabled = false;
+                b.parentElement.className = "";
             }
 
             //Re-disable the button just clicked
             this.disabled = true;
+            this.parentElement.className = "dem";
 
             doUpdate();
         });
@@ -299,6 +303,7 @@ function addButtonListeners(){
             var other_buttons = document.getElementsByClassName(state_code);
             for(b of other_buttons){
                 b.disabled = false;
+                b.parentElement.className = "";
             }
 
             //Re-disable the button just clicked
