@@ -9,6 +9,9 @@ const BAR_HEIGHT = 100;
 const DEM_COLOUR = "#244999";
 const REP_COLOUR = "#e50a00";
 
+const DEM_2016 = 232;
+const REP_2016 = 306;
+
 function State(name, votes, last_win){
     this.name = name
     this.votes = votes
@@ -96,8 +99,24 @@ function updateVoteText(){
     var demVotesText = document.getElementById("dem-votes-num");
     var repVotesText = document.getElementById("rep-votes-num");
 
+    var demVotesChangeText = document.getElementById("dem-votes-change");
+    var repVotesChangeText = document.getElementById("rep-votes-change");
+
     demVotesText.innerHTML = bidenVotes;
     repVotesText.innerHTML = trumpVotes;
+
+    var demChangeText = bidenVotes - DEM_2016;
+    if(demChangeText >= 0){
+        demChangeText = "+" + demChangeText;
+    }
+
+    var repChangeText = trumpVotes - REP_2016;
+    if(repChangeText >= 0){
+        repChangeText = "+" + repChangeText
+    }
+
+    demVotesChangeText.innerHTML = demChangeText;
+    repVotesChangeText.innerHTML = repChangeText;
 }
 
 function updateBar(){
