@@ -155,8 +155,26 @@ function updateVoteText(){
         repChangeText = "+" + trumpChange;
     }
 
+    // Setting text for change in votes
     demVotesChangeText.innerHTML = demChangeText;
     repVotesChangeText.innerHTML = repChangeText;
+
+    // Setting colour of text for change in votes
+    if(bidenChange > 0){
+        demVotesChangeText.className = "change-gain";
+    }else if(bidenChange < 0){
+        demVotesChangeText.className = "change-loss";
+    }else{
+        demVotesChangeText.className = "change-none";
+    }
+
+    if(trumpChange > 0){
+        repVotesChangeText.className = "change-gain";
+    }else if(trumpChange < 0){
+        repVotesChangeText.className = "change-loss";
+    }else{
+        repVotesChangeText.className = "change-none";
+    }
 }
 
 // Redraws the bar which shows how close each candidate is to 270 votes
@@ -165,20 +183,20 @@ function updateBar(){
     // Draw democrat bar from the left
     con.fillStyle = DEM_COLOUR;
     var demPixels = (bidenVotes / MAX_VOTES) * BAR_WIDTH;
-    con.fillRect(100, 100, demPixels, BAR_HEIGHT);
+    con.fillRect(0, 0, demPixels, BAR_HEIGHT);
 
     // Draw the republican bar from the right
     con.fillStyle = REP_COLOUR;
     var repPixels = (trumpVotes / MAX_VOTES) * BAR_WIDTH;
-    con.fillRect(100 + BAR_WIDTH, 100, -repPixels, 100);
+    con.fillRect(BAR_WIDTH, 0, -repPixels, 100);
 
     // Draw a border around the bar
     con.strokeStyle = "black";
-    con.strokeRect(100, 100, BAR_WIDTH, BAR_HEIGHT);
+    con.strokeRect(0, 0, BAR_WIDTH, BAR_HEIGHT);
     // Draw a line halfway through the bar
     con.beginPath();
-    con.moveTo(500, 100);
-    con.lineTo(500, 200);
+    con.moveTo(400, 0);
+    con.lineTo(400, 100);
     con.stroke();
 }
 
@@ -189,9 +207,9 @@ function addToTable(state){
     state_html = `<tr>
     <td>${state.name}</td>
     <td>${state.votes}</td>
-    <td>${state.last_win == DEM ? "Democrat" : "Republican"}</td>
-    <td><button class="rep ${state.code}">Republican</button</td>
-    <td><button class="dem ${state.code}">Democrat</button></td>
+    <td class="${state.last_win == DEM ? "dem" : "rep"}">${state.last_win == DEM ? "Clinton" : "Trump"}</td>
+    <td><button class="rep ${state.code}">Trump</button</td>
+    <td><button class="dem ${state.code}">Biden</button></td>
     <td><button class="ncy ${state.code}" disabled>Not Called Yet</button></td>
     </tr>`;
 

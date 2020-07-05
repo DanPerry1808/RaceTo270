@@ -1,3 +1,64 @@
 /*
 CSS File
 */
+main {
+    margin: auto;
+    max-width: 1200px;
+}
+
+#canvas-wrapper {
+    clear: both;
+    width: 800px;
+    margin: auto;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    width: 1000px;
+}
+
+#votes div{
+    text-align: center;
+}
+
+.change-loss {
+    color: red;
+}
+
+.change-gain {
+    color: green;
+}
+
+.change-none {
+    color: black;
+}
+  
+table, th, td {
+    border: 1px solid black;
+}
+
+td, th {
+    padding: 10px;
+}
+
+.rep {
+    color: #e50a00;
+}
+
+.dem {
+    color: #244999;
+}
+
+button.dem{
+    color: default;
+}
+
+#dem-votes {
+    float: left;
+}
+
+#rep-votes {
+    float: right;
+}
