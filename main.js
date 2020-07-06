@@ -312,6 +312,7 @@ addButtonListeners();
 
 // Add event listener for reset button, makes all states not called yet
 document.getElementById("reset-btn").addEventListener('click', function(){
+    // Finds all 'Not called yet' buttons and clicks them to reset all states
     var ncyBtns = document.querySelectorAll("button.ncy");
     for(btn of ncyBtns){
         btn.click();
@@ -319,3 +320,17 @@ document.getElementById("reset-btn").addEventListener('click', function(){
 
     doUpdate();
 })
+
+// Add event listener for 2016 result button
+document.getElementById("2016-btn").addEventListener('click', function(){
+    // For each state, click the button of its 2016 winner
+    for(state of states){
+        if(state.last_win == DEM){
+            var demBtn = document.getElementsByClassName(`dem ${state.code}`)[0];
+            demBtn.click();
+        }else{
+            var repBtn = document.getElementsByClassName(`rep ${state.code}`)[0];
+            repBtn.click();
+        }
+    }
+});
