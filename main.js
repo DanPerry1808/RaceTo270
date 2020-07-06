@@ -244,27 +244,44 @@ function doUpdate(){
     updateBar();
 }
 
+function setStateWinner(btn, win){
+    // Get the state code and its index in the states array
+    var stateCode = btn.className.split(" ")[1];
+    var state_i = findState(stateCode);
+    // Set state winner to win parameter
+    states[state_i].winner = win
+
+    // enable all buttons in row, apart from one just pressed
+    var other_buttons = document.getElementsByClassName(stateCode);
+    for(b of other_buttons){
+        b.disabled = false;
+        // Remove CSS styling on parent td element
+        b.parentElement.className = "";
+    }
+
+    // Disable clicked button
+    btn.disabled = true
+    // Set background colour of parent td element
+    if(win == DEM){
+        btn.parentElement.className = "dem";
+    }else if(win == REP){
+        btn.parentElement.className = "rep";
+    }else{
+        btn.parentElement.className = "";
+    }
+
+    // Update bar and text
+    doUpdate();
+
+}
+
+// Adds the event listeners for clicking a button in the state table
 function addButtonListeners(){
     // Buttons for republican winning state
     var rep_buttons = document.getElementsByClassName("rep");
     for (button of rep_buttons){
         button.addEventListener("click", function(){
-            var state_code = this.className.split(" ")[1];
-            var state_i = findState(state_code);
-            states[state_i].winner = REP;
-
-            // Re-enables the other buttons and removes colouring
-            var other_buttons = document.getElementsByClassName(state_code);
-            for(b of other_buttons){
-                b.disabled = false;
-                b.parentElement.className = "";
-            }
-
-            //Re-disable the button just clicked
-            this.disabled = true;
-            this.parentElement.className = "rep";
-
-            doUpdate();
+            setStateWinner(this, REP);
         });
     }
 
@@ -272,22 +289,7 @@ function addButtonListeners(){
     var dem_buttons = document.getElementsByClassName("dem");
     for (button of dem_buttons){
         button.addEventListener("click", function(){
-            var state_code = this.className.split(" ")[1];
-            var state_i = findState(state_code);
-            states[state_i].winner = DEM;
-
-            // Re-enables the other buttons and removes colouring
-            var other_buttons = document.getElementsByClassName(state_code);
-            for(b of other_buttons){
-                b.disabled = false;
-                b.parentElement.className = "";
-            }
-
-            //Re-disable the button just clicked
-            this.disabled = true;
-            this.parentElement.className = "dem";
-
-            doUpdate();
+            setStateWinner(this, DEM);
         });
     }
 
@@ -295,21 +297,7 @@ function addButtonListeners(){
     var ncy_buttons = document.getElementsByClassName("ncy");
     for (button of ncy_buttons){
         button.addEventListener("click", function(){
-            var state_code = this.className.split(" ")[1];
-            var state_i = findState(state_code);
-            states[state_i].winner = NOT_CALLED;
-
-            // Re-enables the other buttons
-            var other_buttons = document.getElementsByClassName(state_code);
-            for(b of other_buttons){
-                b.disabled = false;
-                b.parentElement.className = "";
-            }
-
-            //Re-disable the button just clicked
-            this.disabled = true;
-
-            doUpdate();
+            setStateWinner(this, NOT_CALLED);
         });
     }
 
@@ -321,3 +309,13 @@ for(state of states){
 
 doUpdate();
 addButtonListeners();
+
+// Add event listener for reset button, makes all states not called yet
+document.getElementById("reset-btn").addEventListener('click', function(){
+    var ncyBtns = document.querySelectorAll("button.ncy");
+    for(btn of ncyBtns){
+        btn.click();
+    }
+
+    doUpdate();
+})
