@@ -201,6 +201,9 @@ function updateVoteText(){
 // Redraws the bar which shows how close each candidate is to 270 votes
 function updateBar(){
     con.clearRect(0, 0, canv.width, canv.height);
+
+    con.lineWidth = 3;
+
     // Draw democrat bar from the left
     con.fillStyle = DEM_COLOUR;
     var demPixels = (bidenVotes / MAX_VOTES) * BAR_WIDTH;
@@ -215,6 +218,8 @@ function updateBar(){
     con.strokeStyle = "black";
     con.strokeRect(0, 0, BAR_WIDTH, BAR_HEIGHT);
     // Draw a line halfway through the bar
+
+    con.lineWidth = 2;
     con.beginPath();
     con.moveTo(400, 0);
     con.lineTo(400, 100);
