@@ -9,11 +9,11 @@ main {
     margin: auto;
     max-width: 1200px;
     height: 100%;
-    padding: 20px;
 }
 
 h2 {
     font-size: 200%;
+    margin-top: 10px;
     margin-bottom: 0px;
 }
 
@@ -31,12 +31,29 @@ table {
     margin: auto;
     border-collapse: collapse;
     text-align: center;
-    width: 1000px;
+    width: 800px;
+}
+
+#controls {
+    padding: 20px;
+    max-width: 240px;
+    margin: auto;
+}
+
+#controls-wrapper {
+    max-width: 800px;
+    background-color: #cccccc;
+    border: #aaaaaa 2px solid;
+}
+
+#controls button{
+    text-align: center;
+    margin: 0px 10px;
 }
 
 #votes {
     display: flex;
-    height: 200px;
+    max-height: 200px;
     margin: 10px;
 }
 
@@ -63,6 +80,10 @@ table {
 
 #vote-spacer{
     flex: 6;
+}
+
+#controls-wrapper{
+    margin: auto;
 }
 
 .change-loss {
@@ -95,6 +116,7 @@ td.dem {
 }
 
 #states {
+    margin-top: 20px;
     height: 600px;
     overflow: scroll;
 }
