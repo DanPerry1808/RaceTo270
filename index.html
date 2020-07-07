@@ -13,17 +13,19 @@
     <main>
         <div id="votes">
             <div id="dem-votes">
-                <h2>Biden</h2>
-                <p id="dem-votes-num"></p>
-                <p id="dem-votes-change"></p>
-                <p id="dem-distance"></p>
-            </div>
-            <div id="vote-spacer"></div>
-            <div id="rep-votes">
-                <h2>Trump</h2>
-                <p id="rep-votes-num"></p>
-                <p id="rep-votes-change"></p>
-                <p id="rep-distance"></p>
+                <div id="dem-wrapper" class="votes-wrapper">
+                    <h2 id="biden" class="centered">Biden</h2>
+                    <h2 id="dem-votes-num" class="centered"></h2>
+                    <h4 id="dem-votes-change"></h4>
+                    <p id="dem-distance" class="distance"></p>
+                </div>
+            </div><div id="rep-votes">
+                <div id="rep-wrapper" class="votes-wrapper">
+                    <h2 id="trump" class="centered">Trump</h2>
+                    <h2 id="rep-votes-num" class="centered"></h2>
+                    <h4 id="rep-votes-change"></h4>
+                    <p id="rep-distance" class="distance"></p>
+                </div>
             </div>
         </div>
 

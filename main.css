@@ -1,3 +1,4 @@
+/* Setting background and font */
 body {
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
@@ -5,6 +6,7 @@ body {
     margin: 0px;
 }
 
+/* Centering main content */
 main {
     margin: auto;
     max-width: 1200px;
@@ -13,20 +15,21 @@ main {
 
 h2 {
     font-size: 200%;
-    margin-top: 10px;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
 button {
     border-radius: 10%;
 }
 
+/* Fix size and center the canvas */
 #canvas-wrapper {
     width: 800px;
     margin: auto;
     padding: 20px 0px;
 }
 
+/* Center the table of states */
 table {
     margin: auto;
     border-collapse: collapse;
@@ -34,12 +37,14 @@ table {
     width: 800px;
 }
 
+/* Center the control buttons */ 
 #controls {
     padding: 20px;
     max-width: 240px;
     margin: auto;
 }
 
+/* Set background for the control buttons*/
 #controls-wrapper {
     max-width: 800px;
     background-color: #cccccc;
@@ -51,40 +56,79 @@ table {
     margin: 0px 10px;
 }
 
+
+/* Size and center the candidate boxes*/
 #votes {
-    display: flex;
+    max-width: 800px;
     max-height: 200px;
-    margin: 10px;
+    margin: auto;
 }
 
-#votes div{
+/* Make each candidate box half of the parent div */
+#votes > div{
+    width: 50%;
+    display: inline-flex;
     text-align: center;
-    border-radius: 10px;
-    padding: 0px 10px;
-    flex: 1;
+    margin: 10px 0px;
 }
+
+/* Each candidate box is a 3x2 grid */
+.votes-wrapper {
+    width: 400px;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+/* Rules for the text inside candidate boxes*/
+
+/* Vertically align the candidate's names and votes*/
+.centered {
+    margin: auto;
+}
+
+/* Biden's name takes up entire left hand side of grid */
+#biden {
+    grid-row: 1/ span 2;
+    grid-column: 1;
+}
+
+#dem-votes-num {
+    grid-row: 1/ span 2;
+    grid-column: 3;
+}
+
+/* Trump's name takes up entire right hand side of grid*/
+#trump {
+    grid-row: 1/ span 2;
+    grid-column: 3;
+}
+
+#rep-votes-num {
+    grid-row: 1/ span 2;
+    grid-column: 1;
+}
+
+/* Distance from 270 is in middle column on bottom row */
+.distance {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+
+/* Setting shape and background of candidate boxes */
 
 #dem-votes {
-    border: 2px solid #244999;
     background-color: #acc0ec;
-    width: 15%;
-    max-width: 200px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 #rep-votes {
-    border: 2px solid #e50a00;
     background-color: #ff9e99;
-    width: 15%;
-    max-width: 200px;
+    border-radius: 0px 10px 10px 0px;
 }
 
-#vote-spacer{
-    flex: 6;
-}
-
-#controls-wrapper{
-    margin: auto;
-}
+/* Colours for the change in electoral votes */
 
 .change-loss {
     color: red;
@@ -97,7 +141,13 @@ table {
 .change-none {
     color: black;
 }
+
+#controls-wrapper{
+    margin: auto;
+}
   
+/* States table */
+
 table, th, td {
     background-color: #ffffff;
     border: 1px solid black;
@@ -107,6 +157,8 @@ td, th {
     padding: 8px;
 }
 
+/* Setting background of td elements based on the candidate for that state */
+
 td.rep {
     background-color: #ff9e99;
 }
@@ -115,6 +167,7 @@ td.dem {
     background-color: #acc0ec;
 }
 
+/* Allow states table to scroll to prevent page being overly long*/
 #states {
     margin-top: 20px;
     height: 600px;
