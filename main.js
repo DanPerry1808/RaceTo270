@@ -327,7 +327,7 @@ document.getElementById("reset-btn").addEventListener('click', function(){
 })
 
 // Add event listener for 2016 result button
-document.getElementById("2016-btn").addEventListener('click', function(){
+document.getElementById("btn-2016").addEventListener('click', function(){
     // For each state, click the button of its 2016 winner
     for(state of states){
         if(state.last_win == DEM){

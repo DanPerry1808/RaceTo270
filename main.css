@@ -39,21 +39,44 @@ table {
 
 /* Center the control buttons */ 
 #controls {
-    padding: 20px;
-    max-width: 240px;
+    width: 100%;
+    display: inline-grid;
     margin: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 25% auto 10% auto 25%;
 }
 
 /* Set background for the control buttons*/
 #controls-wrapper {
     max-width: 800px;
-    background-color: #cccccc;
-    border: #aaaaaa 2px solid;
+    background-color: #bbbbbb;
+    border: black 2px solid;
 }
 
+/* Styling for control buttons, made larger, remove border radius */
 #controls button{
+    background-color: white;
+    border-radius: 0;
+    border: black 1px solid;
+    font-size: 1.2em;
     text-align: center;
     margin: 0px 10px;
+    transition-duration: 0.1s;
+}
+
+/* Make buttons darker when hovering over */
+#controls button:hover {
+    background-color: #dddddd;
+}
+
+#reset-btn {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#btn-2016 {
+    grid-row: 2;
+    grid-column: 4
 }
 
 
