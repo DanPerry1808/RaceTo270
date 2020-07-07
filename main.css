@@ -167,8 +167,11 @@ td.dem {
     background-color: #acc0ec;
 }
 
-/* Allow states table to scroll to prevent page being overly long*/
+/* Center states table and allow it to scroll to prevent page being overly long*/
 #states {
+    /*Made slightly wider due to scroll bar*/
+    width: 816px;
+    margin: auto;
     margin-top: 20px;
     height: 600px;
     overflow: scroll;
