@@ -19,69 +19,69 @@ function State(code, name, votes, last_win, winner = NOT_CALLED){
     this.winner = winner;
 }
 
-var al = new State("AL", "Alabama", 9, REP);
-var ak = new State("AK", "Alaska", 3, REP);
-var az = new State("AZ", "Arizona", 11, REP);
-var ar = new State("AR", "Arkansas", 6, REP);
-var ca = new State("CA", "California", 55, DEM);
-var co = new State("CO", "Colorado", 9, DEM);
-var ct = new State("CT", "Connecticut", 7, DEM);
-var dc = new State("DC", "Washington D.C.", 3, DEM);
-var de = new State("DE", "Delaware", 3, DEM);
-var fl = new State("FL", "Florida", 29, REP);
-var ga = new State("GA", "Georgia", 16, REP);
-var hi = new State("HI", "Hawaii", 4, DEM);
-var id = new State("ID", "Idaho", 4, REP);
-var il = new State("IL", "Illinois", 20, DEM);
-var ind = new State("IN", "Indiana", 11, REP);
-var ia = new State("IA", "Iowa", 6, REP);
-var ks = new State("KS", "Kansas", 6, REP);
-var ky = new State("KY", "Kentucky", 8, REP);
-var la = new State("LA", "Louisiana", 8, REP);
-var me = new State("ME", "Maine", 2, DEM);
-var me_1 = new State("ME1", "Maine District 1", 1, DEM);
-var me_2 = new State("ME2", "Maine District 2", 1, REP);
-var md = new State("MD", "Maryland", 10, DEM);
-var ma = new State("MA", "Massachusetts", 11, DEM);
-var mi = new State("MI", "Michigan", 16, REP);
-var mn = new State("MN", "Minnesota", 10, DEM);
-var ms = new State("MS", "Mississippi", 6, REP);
-var mo = new State("MO", "Missouri", 10, REP);
-var mt = new State("MT", "Montana", 3, REP);
-var ne = new State("NE", "Nebraska", 2, REP);
-var ne_1 = new State("NE1", "Nebraska District 1", 1, REP);
-var ne_2 = new State("NE2", "Nebraska District 2", 1, REP);
-var ne_3 = new State("NE3", "Nebraska District 3", 1, REP);
-var nv = new State("NV", "Nevada", 6, DEM);
-var nh = new State("NH", "New Hampshire", 4, DEM);
-var nj = new State("NJ", "New Jersey", 14, DEM);
-var nm = new State("NM", "New Mexico", 5, DEM);
-var ny = new State("NY", "New York", 29, DEM);
-var nc = new State("NC", "North Carolina", 15, REP);
-var nd = new State("ND", "North Dakota", 3, REP);
-var oh = new State("OH", "Ohio", 18, REP);
-var ok = new State("OK", "Oklahoma", 7, REP);
-var or = new State("OR", "Oregon", 7, DEM);
-var pa = new State("PA", "Pennsylvania", 20, REP);
-var ri = new State("RI", "Rhode Island", 4, DEM);
-var sc = new State("SC", "South Carolina", 9, REP);
-var sd = new State("SD", "South Dakota", 3, REP);
-var tn = new State("TN", "Tennessee", 11, REP);
-var tx = new State("TX", "Texas", 38, REP);
-var ut = new State("UT", "Utah", 6, REP);
-var vt = new State("VT", "Vermont", 3, DEM);
-var va = new State("VA", "Virginia", 13, DEM);
-var wa = new State("WA", "Washington", 12, DEM);
-var wv = new State("WV", "West Virginia", 5, REP);
-var wi = new State("WI", "Wisconsin", 10, REP);
-var wy = new State("WY", "Wyoming", 3, REP);
+const al = new State("AL", "Alabama", 9, REP);
+const ak = new State("AK", "Alaska", 3, REP);
+const az = new State("AZ", "Arizona", 11, REP);
+const ar = new State("AR", "Arkansas", 6, REP);
+const ca = new State("CA", "California", 55, DEM);
+const co = new State("CO", "Colorado", 9, DEM);
+const ct = new State("CT", "Connecticut", 7, DEM);
+const dc = new State("DC", "Washington D.C.", 3, DEM);
+const de = new State("DE", "Delaware", 3, DEM);
+const fl = new State("FL", "Florida", 29, REP);
+const ga = new State("GA", "Georgia", 16, REP);
+const hi = new State("HI", "Hawaii", 4, DEM);
+const id = new State("ID", "Idaho", 4, REP);
+const il = new State("IL", "Illinois", 20, DEM);
+const ind = new State("IN", "Indiana", 11, REP);
+const ia = new State("IA", "Iowa", 6, REP);
+const ks = new State("KS", "Kansas", 6, REP);
+const ky = new State("KY", "Kentucky", 8, REP);
+const la = new State("LA", "Louisiana", 8, REP);
+const me = new State("ME", "Maine", 2, DEM);
+const me_1 = new State("ME1", "Maine District 1", 1, DEM);
+const me_2 = new State("ME2", "Maine District 2", 1, REP);
+const md = new State("MD", "Maryland", 10, DEM);
+const ma = new State("MA", "Massachusetts", 11, DEM);
+const mi = new State("MI", "Michigan", 16, REP);
+const mn = new State("MN", "Minnesota", 10, DEM);
+const ms = new State("MS", "Mississippi", 6, REP);
+const mo = new State("MO", "Missouri", 10, REP);
+const mt = new State("MT", "Montana", 3, REP);
+const ne = new State("NE", "Nebraska", 2, REP);
+const ne_1 = new State("NE1", "Nebraska District 1", 1, REP);
+const ne_2 = new State("NE2", "Nebraska District 2", 1, REP);
+const ne_3 = new State("NE3", "Nebraska District 3", 1, REP);
+const nv = new State("NV", "Nevada", 6, DEM);
+const nh = new State("NH", "New Hampshire", 4, DEM);
+const nj = new State("NJ", "New Jersey", 14, DEM);
+const nm = new State("NM", "New Mexico", 5, DEM);
+const ny = new State("NY", "New York", 29, DEM);
+const nc = new State("NC", "North Carolina", 15, REP);
+const nd = new State("ND", "North Dakota", 3, REP);
+const oh = new State("OH", "Ohio", 18, REP);
+const ok = new State("OK", "Oklahoma", 7, REP);
+const or = new State("OR", "Oregon", 7, DEM);
+const pa = new State("PA", "Pennsylvania", 20, REP);
+const ri = new State("RI", "Rhode Island", 4, DEM);
+const sc = new State("SC", "South Carolina", 9, REP);
+const sd = new State("SD", "South Dakota", 3, REP);
+const tn = new State("TN", "Tennessee", 11, REP);
+const tx = new State("TX", "Texas", 38, REP);
+const ut = new State("UT", "Utah", 6, REP);
+const vt = new State("VT", "Vermont", 3, DEM);
+const va = new State("VA", "Virginia", 13, DEM);
+const wa = new State("WA", "Washington", 12, DEM);
+const wv = new State("WV", "West Virginia", 5, REP);
+const wi = new State("WI", "Wisconsin", 10, REP);
+const wy = new State("WY", "Wyoming", 3, REP);
 
-var states = [al, ak, az, ar, ca, co, ct, dc, de, fl, ga, hi, id, il, ind, ia, ks, ky, la, me, me_1, me_2, md, ma, mi, mn, ms, mo, mt, ne, ne_1, ne_2, ne_3,
+const states = [al, ak, az, ar, ca, co, ct, dc, de, fl, ga, hi, id, il, ind, ia, ks, ky, la, me, me_1, me_2, md, ma, mi, mn, ms, mo, mt, ne, ne_1, ne_2, ne_3,
     nv, nh, nj, nm, ny, nc, nd, oh, ok, or, pa, ri, sc, sd, tn, tx, ut, vt, va, wa, wv, wi, wy];
 
 // Find a state object by its code and return its index
 function findState(code){
-    for(i = 0; i < states.length; i++){
+    for(let i = 0; i < states.length; i++){
         if(states[i].code === code){
             return i;
         }
@@ -89,14 +89,14 @@ function findState(code){
     return "State could not be found";
 }
 
-var canv = document.getElementById("canv");
-var con = canv.getContext("2d");
+const canv = document.getElementById("canv");
+const con = canv.getContext("2d");
 
-var bidenVotes = 0;
-var trumpVotes = 0;
+let bidenVotes = 0;
+let trumpVotes = 0;
 
-var bidenChange = 0;
-var trumpChange = 0;
+let bidenChange = 0;
+let trumpChange = 0;
 
 // Updates the vote total and changes for each candidate
 function updateVotes(){
@@ -106,7 +106,7 @@ function updateVotes(){
     bidenChange = 0;
     trumpChange = 0;
 
-    for(state of states){
+    for(let state of states){
         
         // If democrat won, add to biden's total
         if(state.winner == DEM){
@@ -133,16 +133,16 @@ function updateVotes(){
 // Updates the text showing how many votes each candidate has
 function updateVoteText(){
     // Getting text elements for each candidate's number of votes
-    var demVotesText = document.getElementById("dem-votes-num");
-    var repVotesText = document.getElementById("rep-votes-num");
+    const demVotesText = document.getElementById("dem-votes-num");
+    const repVotesText = document.getElementById("rep-votes-num");
 
     // Getting text elements for the change in each candidate's votes
-    var demVotesChangeText = document.getElementById("dem-votes-change");
-    var repVotesChangeText = document.getElementById("rep-votes-change");
+    const demVotesChangeText = document.getElementById("dem-votes-change");
+    const repVotesChangeText = document.getElementById("rep-votes-change");
 
     // Getting text elements for how far each candidate is from 270
-    var demDistanceText = document.getElementById("dem-distance");
-    var repDistanceText = document.getElementById("rep-distance");
+    const demDistanceText = document.getElementById("dem-distance");
+    const repDistanceText = document.getElementById("rep-distance");
 
 
     // Set text for electoral vote count for each candidate
@@ -150,11 +150,12 @@ function updateVoteText(){
     repVotesText.innerHTML = trumpVotes;
 
     // Append '+' to vote change string if vote change is positive
-    var demChangeText = bidenChange;
+    let demChangeText = bidenChange;
     if(bidenChange >= 0){
         demChangeText = "+" + bidenChange;
     }
-    var repChangeText = trumpChange;
+
+    let repChangeText = trumpChange;
     if(trumpChange >= 0){
         repChangeText = "+" + trumpChange;
     }
@@ -206,12 +207,12 @@ function updateBar(){
 
     // Draw democrat bar from the left
     con.fillStyle = DEM_COLOUR;
-    var demPixels = (bidenVotes / MAX_VOTES) * BAR_WIDTH;
+    const demPixels = (bidenVotes / MAX_VOTES) * BAR_WIDTH;
     con.fillRect(0, 0, demPixels, BAR_HEIGHT);
 
     // Draw the republican bar from the right
     con.fillStyle = REP_COLOUR;
-    var repPixels = (trumpVotes / MAX_VOTES) * BAR_WIDTH;
+    const repPixels = (trumpVotes / MAX_VOTES) * BAR_WIDTH;
     con.fillRect(BAR_WIDTH, 0, -repPixels, 100);
 
     // Draw a border around the bar
@@ -228,9 +229,9 @@ function updateBar(){
 
 // Adds a state's information to the state table
 function addToTable(state){
-    var table = document.getElementById("state-table");
+    const table = document.getElementById("state-table");
 
-    state_html = `<tr>
+    const state_html = `<tr>
     <td>${state.name}</td>
     <td>${state.votes}</td>
     <td class="${state.last_win == DEM ? "dem" : "rep"}">${state.last_win == DEM ? "Clinton" : "Trump"}</td>
@@ -251,14 +252,14 @@ function doUpdate(){
 
 function setStateWinner(btn, win){
     // Get the state code and its index in the states array
-    var stateCode = btn.className.split(" ")[1];
-    var state_i = findState(stateCode);
+    const stateCode = btn.className.split(" ")[1];
+    const state_i = findState(stateCode);
     // Set state winner to win parameter
     states[state_i].winner = win
 
     // enable all buttons in row, apart from one just pressed
-    var other_buttons = document.getElementsByClassName(stateCode);
-    for(b of other_buttons){
+    const other_buttons = document.getElementsByClassName(stateCode);
+    for(let b of other_buttons){
         b.disabled = false;
         // Remove CSS styling on parent td element
         b.parentElement.className = "";
@@ -283,27 +284,24 @@ function setStateWinner(btn, win){
 // Adds the event listeners for clicking a button in the state table
 function addButtonListeners(){
     // Buttons for republican winning state
-    var rep_buttons = document.getElementsByClassName("rep");
-    for (button of rep_buttons){
-        button.addEventListener("click", function(){
-            setStateWinner(this, REP);
-        });
+    const rep_buttons = document.getElementsByClassName("rep");
+    for (let button of rep_buttons){
+        button.addEventListener("click", () => 
+            setStateWinner(button, REP));
     }
 
     // Buttons for democrat winning state
-    var dem_buttons = document.getElementsByClassName("dem");
-    for (button of dem_buttons){
-        button.addEventListener("click", function(){
-            setStateWinner(this, DEM);
-        });
+    const dem_buttons = document.getElementsByClassName("dem");
+    for (let button of dem_buttons){
+        button.addEventListener("click", () => 
+            setStateWinner(button, DEM));
     }
 
     // Buttons for states not called yet
-    var ncy_buttons = document.getElementsByClassName("ncy");
-    for (button of ncy_buttons){
-        button.addEventListener("click", function(){
-            setStateWinner(this, NOT_CALLED);
-        });
+    const ncy_buttons = document.getElementsByClassName("ncy");
+    for (let button of ncy_buttons){
+        button.addEventListener("click", () => 
+            setStateWinner(button, NOT_CALLED));
     }
 
 }
@@ -316,10 +314,10 @@ doUpdate();
 addButtonListeners();
 
 // Add event listener for reset button, makes all states not called yet
-document.getElementById("reset-btn").addEventListener('click', function(){
+document.getElementById("reset-btn").addEventListener('click', () => {
     // Finds all 'Not called yet' buttons and clicks them to reset all states
-    var ncyBtns = document.querySelectorAll("button.ncy");
-    for(btn of ncyBtns){
+    const ncyBtns = document.querySelectorAll("button.ncy");
+    for(let btn of ncyBtns){
         btn.click();
     }
 
@@ -327,14 +325,14 @@ document.getElementById("reset-btn").addEventListener('click', function(){
 })
 
 // Add event listener for 2016 result button
-document.getElementById("btn-2016").addEventListener('click', function(){
+document.getElementById("btn-2016").addEventListener('click', () => {
     // For each state, click the button of its 2016 winner
-    for(state of states){
+    for(let state of states){
         if(state.last_win == DEM){
-            var demBtn = document.getElementsByClassName(`dem ${state.code}`)[0];
+            const demBtn = document.getElementsByClassName(`dem ${state.code}`)[0];
             demBtn.click();
         }else{
-            var repBtn = document.getElementsByClassName(`rep ${state.code}`)[0];
+            const repBtn = document.getElementsByClassName(`rep ${state.code}`)[0];
             repBtn.click();
         }
     }
