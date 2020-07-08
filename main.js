@@ -11,14 +11,18 @@ const BAR_HEIGHT = 100;
 const DEM_COLOUR = "#244999";
 const REP_COLOUR = "#e50a00";
 
-function State(code, name, votes, last_win, winner = NOT_CALLED){
-    this.code = code;
-    this.name = name;
-    this.votes = votes;
-    this.last_win = last_win;
-    this.winner = winner;
+// Class for representing each state
+class State {
+    constructor(code, name, votes, last_win){
+        this.code = code;
+        this.name = name;
+        this.votes = votes;
+        this.last_win = last_win;
+        this.winner = NOT_CALLED;
+    }
 }
 
+// Initialising all states
 const al = new State("AL", "Alabama", 9, REP);
 const ak = new State("AK", "Alaska", 3, REP);
 const az = new State("AZ", "Arizona", 11, REP);
@@ -76,6 +80,7 @@ const wv = new State("WV", "West Virginia", 5, REP);
 const wi = new State("WI", "Wisconsin", 10, REP);
 const wy = new State("WY", "Wyoming", 3, REP);
 
+// Add all states to a list
 const states = [al, ak, az, ar, ca, co, ct, dc, de, fl, ga, hi, id, il, ind, ia, ks, ky, la, me, me_1, me_2, md, ma, mi, mn, ms, mo, mt, ne, ne_1, ne_2, ne_3,
     nv, nh, nj, nm, ny, nc, nd, oh, ok, or, pa, ri, sc, sd, tn, tx, ut, vt, va, wa, wv, wi, wy];
 
