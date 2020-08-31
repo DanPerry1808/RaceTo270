@@ -94,14 +94,17 @@ function findState(code){
     return "State could not be found";
 }
 
-const canv = document.getElementById("canv");
-const con = canv.getContext("2d");
-
 let bidenVotes = 0;
 let trumpVotes = 0;
 
 let bidenChange = 0;
 let trumpChange = 0;
+
+// Returns the percentage of electoral votes a candidate has
+// Used for calculating progress bar widths
+function calcBarWidth(votes){
+    return (votes * 100) / MAX_VOTES;
+}
 
 // Updates the vote total and changes for each candidate
 function updateVotes(){
@@ -134,6 +137,31 @@ function updateVotes(){
         }
     }
 }
+
+// Updates the width and text of the progress bar
+function updateProgressBar(){
+    let bidenBarWidth = calcBarWidth(bidenVotes);
+    let trumpBarWidth = calcBarWidth(trumpVotes);
+    let middleVotes = MAX_VOTES - bidenVotes - trumpVotes;
+    let middleBarWidth = calcBarWidth(middleVotes);
+
+    let bidenBar = $('#biden-bar')[0];
+    let trumpBar = $('#trump-bar')[0];
+    let middleBar = $('#middle-bar')[0];
+
+    bidenBar.style.width = `${bidenBarWidth}%`;
+    bidenBar.textContent = `${bidenVotes}`;
+    bidenBar.setAttribute('aria-valuenow', bidenVotes);
+
+    trumpBar.style.width = `${trumpBarWidth}%`;
+    trumpBar.textContent = `${trumpVotes}`;
+    bidenBar.setAttribute('aria-valuenow', trumpVotes);
+
+    middleBar.style.width = `${middleBarWidth}%`;
+    middleBar.textContent = `${middleVotes}`;
+    bidenBar.setAttribute('aria-valuenow', middleVotes);
+}
+
 
 // Updates the text showing how many votes each candidate has
 function updateVoteText(){
@@ -204,55 +232,27 @@ function updateVoteText(){
     }
 }
 
-// Redraws the bar which shows how close each candidate is to 270 votes
-function updateBar(){
-    con.clearRect(0, 0, canv.width, canv.height);
-
-    con.lineWidth = 3;
-
-    // Draw democrat bar from the left
-    con.fillStyle = DEM_COLOUR;
-    const demPixels = (bidenVotes / MAX_VOTES) * BAR_WIDTH;
-    con.fillRect(0, 0, demPixels, BAR_HEIGHT);
-
-    // Draw the republican bar from the right
-    con.fillStyle = REP_COLOUR;
-    const repPixels = (trumpVotes / MAX_VOTES) * BAR_WIDTH;
-    con.fillRect(BAR_WIDTH, 0, -repPixels, 100);
-
-    // Draw a border around the bar
-    con.strokeStyle = "black";
-    con.strokeRect(0, 0, BAR_WIDTH, BAR_HEIGHT);
-    // Draw a line halfway through the bar
-
-    con.lineWidth = 2;
-    con.beginPath();
-    con.moveTo(400, 0);
-    con.lineTo(400, 100);
-    con.stroke();
-}
-
 // Adds a state's information to the state table
 function addToTable(state){
-    const table = document.getElementById("state-table");
+    const tbody = $('#state-tbody')[0];
 
     const state_html = `<tr>
     <td>${state.name}</td>
     <td>${state.votes}</td>
     <td class="${state.last_win == DEM ? "dem" : "rep"}">${state.last_win == DEM ? "Clinton" : "Trump"}</td>
-    <td><button class="rep ${state.code}">Trump</button</td>
-    <td><button class="dem ${state.code}">Biden</button></td>
-    <td><button class="ncy ${state.code}" disabled>Not Called Yet</button></td>
+    <td><button class="rep ${state.code} btn btn-sm btn-danger">Trump</button</td>
+    <td><button class="dem ${state.code} btn btn-sm btn-primary">Biden</button></td>
+    <td><button class="ncy ${state.code} btn btn-sm btn-dark" disabled>Not Called Yet</button></td>
     </tr>`;
 
-    table.innerHTML += state_html;
+    tbody.innerHTML += state_html;
 }
 
 // Wrapper function for all update functions
 function doUpdate(){
     updateVotes()
     updateVoteText();
-    updateBar();
+    updateProgressBar();
 }
 
 function setStateWinner(btn, win){
@@ -268,10 +268,24 @@ function setStateWinner(btn, win){
         b.disabled = false;
         // Remove CSS styling on parent td element
         b.parentElement.className = "";
+        // Remove disabled styling on button
+        b.classList.remove('btn-dark')
+
+        // Re-adding the correct button styling
+        btnText = b.textContent.trim()
+        if (btnText == "Trump"){
+            b.classList.add('btn-danger')
+        }else if (btnText == "Biden"){
+            b.classList.add('btn-primary')
+        }else if (btnText == "Not Called Yet"){
+            b.classList.add('btn-warning')
+        }
     }
 
     // Disable clicked button
     btn.disabled = true
+    btn.classList.remove('btn-warning', 'btn-primary', 'btn-danger')
+    btn.classList.add('btn-dark')
     // Set background colour of parent td element
     if(win == DEM){
         btn.parentElement.className = "dem";

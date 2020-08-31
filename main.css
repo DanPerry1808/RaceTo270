@@ -6,85 +6,94 @@ body {
     margin: 0px;
 }
 
-/* Centering main content */
-main {
-    margin: auto;
-    max-width: 1200px;
-    height: 100%;
-}
-
 h2 {
     font-size: 200%;
     margin: 0px;
 }
 
-button {
-    border-radius: 10%;
-}
-
-/* Fix size and center the canvas */
-#canvas-wrapper {
-    width: 800px;
-    margin: auto;
-    padding: 20px 0px;
-}
-
-/* Center the table of states */
 table {
-    margin: auto;
-    border-collapse: collapse;
     text-align: center;
-    width: 800px;
 }
 
-/* Center the control buttons */ 
-#controls {
-    width: 100%;
-    display: inline-grid;
-    margin: auto;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 25% auto 10% auto 25%;
+#states {
+    height: 600px;
+    overflow: scroll;
 }
 
-/* Set background for the control buttons*/
-#controls-wrapper {
-    max-width: 800px;
-    background-color: #bbbbbb;
-    border: black 2px solid;
+/* Setting shape and background of candidate boxes */
+
+#dem-votes {
+    background-color: #acc0ec;
+    border-radius: 10px 0px 0px 10px;
 }
 
-/* Styling for control buttons, made larger, remove border radius */
-#controls button{
-    background-color: white;
-    border-radius: 0;
-    border: black 1px solid;
-    font-size: 1.2em;
-    text-align: center;
-    margin: 0px 10px;
-    transition-duration: 0.1s;
+#rep-votes {
+    background-color: #ff9e99;
+    border-radius: 0px 10px 10px 0px;
 }
 
-/* Make buttons darker when hovering over */
-#controls button:hover {
+/* Colours for the change in electoral votes */
+
+.change-loss {
+    color: red;
+}
+
+.change-gain {
+    color: green;
+}
+
+.change-none {
+    color: black;
+}
+
+/* Setting height of vote progress bar */
+.progress {
+    height: 64px;
+    margin: 30px 0px;
+    font-size: 1.3em;
+}
+
+#biden-bar {
+    background-color: #244999;
+}
+
+#trump-bar {
+    background-color: #e50a00;
+}
+
+#middle-bar {
+    background-color: #aaaaaa;
+}
+
+.thead-grey {
     background-color: #dddddd;
 }
 
-#reset-btn {
-    grid-row: 2;
-    grid-column: 2;
+/* Setting background of td elements based on the candidate for that state */
+
+td.rep {
+    background-color: #ff9e99;
 }
 
-#btn-2016 {
-    grid-row: 2;
-    grid-column: 4
+td.dem {
+    background-color: #acc0ec;
 }
 
+/* Each candidate box is a 3x2 grid */
+.votes-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
 
 /* Size and center the candidate boxes*/
 #votes {
-    max-width: 800px;
     max-height: 200px;
     margin: auto;
+    padding: 0;
 }
 
 /* Make each candidate box half of the parent div */
@@ -93,19 +102,12 @@ table {
     display: inline-flex;
     text-align: center;
     margin: 10px 0px;
-}
-
-/* Each candidate box is a 3x2 grid */
-.votes-wrapper {
-    width: 400px;
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    padding: 25px 0;
 }
 
 /* Rules for the text inside candidate boxes*/
 
-/* Vertically align the candidate's names and votes*/
+/* Vertically align the candidate's names and votes */
 .centered {
     margin: auto;
 }
@@ -138,64 +140,14 @@ table {
     grid-column: 2;
 }
 
-
-/* Setting shape and background of candidate boxes */
-
-#dem-votes {
-    background-color: #acc0ec;
-    border-radius: 10px 0px 0px 10px;
+.bold {
+    font-weight: bold;
 }
 
-#rep-votes {
-    background-color: #ff9e99;
-    border-radius: 0px 10px 10px 0px;
-}
-
-/* Colours for the change in electoral votes */
-
-.change-loss {
-    color: red;
-}
-
-.change-gain {
-    color: green;
-}
-
-.change-none {
-    color: black;
-}
-
-#controls-wrapper{
-    margin: auto;
-}
-  
-/* States table */
-
-table, th, td {
-    background-color: #ffffff;
-    border: 1px solid black;
-}
-
-td, th {
-    padding: 8px;
-}
-
-/* Setting background of td elements based on the candidate for that state */
-
-td.rep {
-    background-color: #ff9e99;
-}
-
-td.dem {
-    background-color: #acc0ec;
-}
-
-/* Center states table and allow it to scroll to prevent page being overly long*/
-#states {
-    /*Made slightly wider due to scroll bar*/
-    width: 816px;
-    margin: auto;
-    margin-top: 20px;
-    height: 600px;
-    overflow: scroll;
+/* Making the background of the control panel darker */
+#controls {
+    background-color: #dddddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 0 0 30px 0;
 }
